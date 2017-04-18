@@ -5,10 +5,6 @@ function SelectLanguage (props) {
   
   var languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python'];
   
-  var handleInput = function(e){
-    props.onSelect(e.target.id);
-  }
-
   return (
     <ul className='languages'>
       {languages.map(function (lang) {
@@ -16,7 +12,7 @@ function SelectLanguage (props) {
           <li 
             id={lang}
             style={lang === props.selectedLanguage ? {color: '#d0021b'} : null}
-            onClick={handleInput}
+            onClick={()=>{props.onSelect(lang)}} 
             key={lang}>
               {lang}
           </li>
